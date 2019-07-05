@@ -10,7 +10,7 @@ import {
 
 import { DateTime } from "luxon";
 
-const Flight = props => {
+const Flight = ({ number, price, time, duration, from, to }) => {
   return (
     <div>
       <Card
@@ -32,7 +32,7 @@ const Flight = props => {
             padding: "1rem"
           }}
         >
-          Flight number {props.index}
+          Flight number {number}
         </CardTitle>
 
         <CardBody
@@ -57,13 +57,13 @@ const Flight = props => {
             width: "100%"
           }}
         >
-          <CardText>{props.price} EUR </CardText>
+          <CardText>{price} EUR </CardText>
           <CardText>
-            {DateTime.fromMillis(props.time * 1000).toFormat("hh:mm")}
+            {DateTime.fromMillis(time * 1000).toFormat("hh:mm")}
           </CardText>
-          <CardText>{props.duration}</CardText>
+          <CardText>{duration}</CardText>
           <CardText>
-            {props.from} - {props.to}
+            {from} - {to}
           </CardText>
         </CardBody>
 
