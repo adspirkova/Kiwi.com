@@ -42,49 +42,60 @@ const departure = [
   }
 ];
 
-const Search = ({ onSearchChange, updateFlights, checked, onCheckedChange }) => {
+const Search = ({
+  onSearchChange,
+  updateFlights,
+  checked,
+  onCheckedChange
+}) => {
   return (
     <div
       className="search-container"
       style={{
-        padding: "1rem"
+        padding: "1rem",
+        backgroundColor: "#5d9325"
       }}
     >
       <div>
-          <label> From: </label>
-          <select
-            name="from"
-            id=""
-            style={{
-              textalign: "center"
-            }}
-            onChange={onSearchChange}
-          >
-            {departure.map((departure, index) => {
-              return (
-                <option key={index} value={departure.code}>
-                  {departure.city}
-                </option>
-              );
-            })}
-          </select>
+        <label> From: </label>
+        <select
+          name="from"
+          id=""
+          style={{
+            textalign: "center"
+          }}
+          onChange={onSearchChange}
+        >
+          {departure.map((departure, index) => {
+            return (
+              <option key={index} value={departure.code}>
+                {departure.city}
+              </option>
+            );
+          })}
+        </select>
       </div>
       <div>
-          <label> To: </label>
-          <select name="to" id="" onChange={onSearchChange}>
-            {destination.map((destination, index) => {
-              return (
-                <option key={index} value={destination.code}>
-                  {destination.city}
-                </option>
-              );
-            })}
-          </select>
+        <label> To: </label>
+        <select name="to" id="" onChange={onSearchChange}>
+          {destination.map((destination, index) => {
+            return (
+              <option key={index} value={destination.code}>
+                {destination.city}
+              </option>
+            );
+          })}
+        </select>
       </div>
       <div>
-          <label> Direct Flights only</label>
-          {console.log(checked)}
-          <input name="direct" type="checkbox" onChange={onCheckedChange} checked={checked}/>
+        <label> Direct Flights only</label>
+        {console.log(checked)}
+        <input
+          name="direct"
+          type="checkbox"
+          onChange={onCheckedChange}
+          checked={checked}
+        />
       </div>
       <button onClick={updateFlights}>Search</button>
     </div>

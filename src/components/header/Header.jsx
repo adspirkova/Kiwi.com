@@ -1,6 +1,6 @@
 import React from "react";
 import { Jumbotron, Collapse, Navbar, NavbarBrand } from "reactstrap";
-
+import Background from "./water-1018808_1280.jpg";
 import Search from "../dashboard/search/Search.jsx";
 
 export default class Heading extends React.Component {
@@ -18,22 +18,20 @@ export default class Heading extends React.Component {
     });
   }
   render() {
-    const { onSearchChange, updateFlights, checked, onCheckedChange } = this.props;
+    const { onSearchChange, updateFlights } = this.props;
     return (
       <div>
-        <Jumbotron>
-          <h1 className="display-3" className="jumbotron">
-            Welcome to Skypicker
-          </h1>
+        <Jumbotron style={{ backgroundColor: "#5d9325" }}>
+          <h1 className="display-3">Welcome to Skypicker</h1>
         </Jumbotron>
-        <Navbar color="light" light expand="md">
-          <NavbarBrand href="">Skypicker</NavbarBrand>
+        <Navbar style={{ backgroundColor: "#5d9325" }} expand="md">
+          <NavbarBrand style={{ color: "black" }} href="">
+            Skypicker
+          </NavbarBrand>
           <Collapse isOpen={this.state.isOpen} navbar>
             <Search
               onSearchChange={onSearchChange}
               updateFlights={updateFlights}
-              checked={checked}
-              onCheckedChange = {onCheckedChange}
             />
           </Collapse>
         </Navbar>
