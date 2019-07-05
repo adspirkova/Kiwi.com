@@ -45,7 +45,7 @@ const Flight = ({ number, price, time, duration, from, to, stop }) => {
         >
           <CardSubtitle>Price</CardSubtitle>
 
-          <CardSubtitle>Time and Date</CardSubtitle>
+          <CardSubtitle>Time</CardSubtitle>
           <CardSubtitle>Duration</CardSubtitle>
           <CardSubtitle>From - To</CardSubtitle>
           <CardSubtitle>Number of stops</CardSubtitle>
@@ -60,7 +60,7 @@ const Flight = ({ number, price, time, duration, from, to, stop }) => {
             fontSize: "25px"
           }}
         >
-          <CardText>{price} EUR </CardText>
+          <CardText>{price} € </CardText>
           <CardText>
             {DateTime.fromMillis(time * 1000).toFormat("hh:mm")}
           </CardText>
