@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
 import Flight from './dashboard/card/Flight.jsx';
+import Heading from './header/Header.jsx';
+import Search from './dashboard/search/Search.jsx'
 
 
 export default class App extends Component {
@@ -32,11 +34,13 @@ export default class App extends Component {
                 duration = {flight.fly_duration}
                 from = {flight.cityFrom}
                 to = {flight.cityTo}
+                number = {flight.flight_no}
              />
                 )
             })
         return (
             <>
+            <Heading/>
             {this.state.loading ? 'Wait a second...': flightComponents}
             </>
         )

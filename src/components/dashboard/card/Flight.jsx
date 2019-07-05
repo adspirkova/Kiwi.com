@@ -12,7 +12,7 @@ const Flight = (props) => {
         border: '1px solid black'
       }}>
         <CardBody>
-          <CardTitle>Flight number {props.index}</CardTitle>
+          <CardTitle>Flight number {props.number}</CardTitle>
           <CardSubtitle>Price</CardSubtitle>
           <CardText>{props.price} EUR </CardText>
           <CardSubtitle>Time and Date</CardSubtitle>
