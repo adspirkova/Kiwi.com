@@ -12,7 +12,7 @@ export default class App extends Component {
     to: "VLC",
     noavailableflight: true,
     checked: false,
-    direct: 0
+    direct: 0,
   };
 
   updateFlights = () => {
@@ -33,6 +33,7 @@ export default class App extends Component {
         });
       });
   };
+  
 
   componentDidMount() {
     this.updateFlights();
