@@ -10,7 +10,7 @@ import {
 
 import { DateTime } from "luxon";
 
-const Flight = ({ number, price, time, duration, from, to }) => {
+const Flight = ({ number, price, time, duration, from, to, stop }) => {
   return (
     <div>
       <Card
@@ -18,7 +18,7 @@ const Flight = ({ number, price, time, duration, from, to }) => {
           margin: "2rem 10rem 2rem 21rem",
           borderColor: "#333",
           heigth: "50px",
-          width: "600px",
+          width: "800px",
           display: "flex",
           alignItems: "center",
           border: "1px solid black"
@@ -44,9 +44,11 @@ const Flight = ({ number, price, time, duration, from, to }) => {
           }}
         >
           <CardSubtitle>Price</CardSubtitle>
+
           <CardSubtitle>Time and Date</CardSubtitle>
           <CardSubtitle>Duration</CardSubtitle>
           <CardSubtitle>From - To</CardSubtitle>
+          <CardSubtitle>Number of stops</CardSubtitle>
         </CardBody>
 
         <CardBody
@@ -54,7 +56,8 @@ const Flight = ({ number, price, time, duration, from, to }) => {
             flexDirection: "row",
             display: "flex",
             justifyContent: "space-between",
-            width: "100%"
+            width: "100%",
+            fontSize: "25px"
           }}
         >
           <CardText>{price} EUR </CardText>
@@ -65,6 +68,8 @@ const Flight = ({ number, price, time, duration, from, to }) => {
           <CardText>
             {from} - {to}
           </CardText>
+          {console.log(stop)}
+          <CardText>{stop.length - 1}</CardText>
         </CardBody>
 
         <Button

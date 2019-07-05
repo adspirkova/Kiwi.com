@@ -12,7 +12,7 @@ export default class App extends Component {
     to: "VLC",
     noavailableflight: true,
     checked: false,
-    direct: 0,
+    direct: 0
   };
 
   updateFlights = () => {
@@ -38,11 +38,12 @@ export default class App extends Component {
     this.updateFlights();
   }
 
-  onCheckedChange= e => {
+  onCheckedChange = e => {
     this.setState({
       checked: e.target.checked,
-      direct: 1 });
-  }
+      direct: 1
+    });
+  };
 
   onSearchChange = e => {
     if (e.target.name === "from") {
@@ -65,6 +66,7 @@ export default class App extends Component {
           from={flight.cityFrom}
           to={flight.cityTo}
           number={flight.flight_no}
+          stop={flight.route}
         />
       );
     });
@@ -74,10 +76,12 @@ export default class App extends Component {
           onSearchChange={this.onSearchChange}
           updateFlights={this.updateFlights}
           checked={this.state.checked}
-          onCheckedChange = {this.onCheckedChange}
+          onCheckedChange={this.onCheckedChange}
         />
         {this.state.loading ? "Wait a second..." : flightComponents}
-        {flightComponents.length === 0 && !this.state.loading ?  "No available flights" : flightComponents}
+        {flightComponents.length === 0 && !this.state.loading
+          ? "No available flights"
+          : flightComponents}
       </>
     );
   }
