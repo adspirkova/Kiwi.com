@@ -9,28 +9,39 @@ export default class App extends Component {
     flights: [],
     loading: true,
     from: "PRG",
-    to: "VLC"
+    to: "VLC",
+    noavailableflight: true,
+    checked: false,
+    direct: 0,
   };
 
   updateFlights = () => {
     // download with new params
-    const { from, to } = this.state;
+    const { from, to, checked, direct } = this.state;
 
     fetch(
-      `https://api.skypicker.com/flights?fly_from=${from}&fly_to=${to}&date_from=08/08/2019&date_to=08/09/2019&curr=EUR`
+      `https://api.skypicker.com/flights?fly_from=${from}&fly_to=${to}&date_from=08/08/2019&date_to=08/09/2019&curr=EUR&direct_flights=${direct}`
     )
       .then(resp => resp.json())
       .then(data => {
         console.log(data.data);
         this.setState({
           flights: data.data,
-          loading: false
+          loading: false,
+          noavailableflight: false,
+          checked
         });
       });
   };
 
   componentDidMount() {
     this.updateFlights();
+  }
+
+  onCheckedChange= e => {
+    this.setState({
+      checked: e.target.checked,
+      direct: 1 });
   }
 
   onSearchChange = e => {
@@ -62,8 +73,11 @@ export default class App extends Component {
         <Heading
           onSearchChange={this.onSearchChange}
           updateFlights={this.updateFlights}
+          checked={this.state.checked}
+          onCheckedChange = {this.onCheckedChange}
         />
         {this.state.loading ? "Wait a second..." : flightComponents}
+        {flightComponents.length === 0 && !this.state.loading ?  "No available flights" : flightComponents}
       </>
     );
   }

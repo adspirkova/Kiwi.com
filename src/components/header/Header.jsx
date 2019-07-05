@@ -18,7 +18,7 @@ export default class Heading extends React.Component {
     });
   }
   render() {
-    const { onSearchChange, updateFlights } = this.props;
+    const { onSearchChange, updateFlights, checked, onCheckedChange } = this.props;
     return (
       <div>
         <Jumbotron>
@@ -32,6 +32,8 @@ export default class Heading extends React.Component {
             <Search
               onSearchChange={onSearchChange}
               updateFlights={updateFlights}
+              checked={checked}
+              onCheckedChange = {onCheckedChange}
             />
           </Collapse>
         </Navbar>
