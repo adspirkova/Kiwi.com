@@ -18,20 +18,22 @@ export default class Heading extends React.Component {
     });
   }
   render() {
-    const { onSearchChange, updateFlights } = this.props;
+    const { onSearchChange, updateFlights, onCheckedChange, checked } = this.props;
     return (
       <div>
-        <Jumbotron style={{ backgroundColor: "#5d9325" }}>
-          <h1 className="display-3">Welcome to Skypicker</h1>
+        <Jumbotron style={{ backgroundColor: "#FFA384", color: 'white' }}>
+          <h1 className="display-3" >Welcome to Skypicker</h1>
         </Jumbotron>
-        <Navbar style={{ backgroundColor: "#5d9325" }} expand="md">
-          <NavbarBrand style={{ color: "black" }} href="">
+        <Navbar style={{ backgroundColor: "#74BDCB", color: 'black' }} expand="md">
+          <NavbarBrand style={{ color: "white" }} href="">
             Skypicker
           </NavbarBrand>
           <Collapse isOpen={this.state.isOpen} navbar>
             <Search
               onSearchChange={onSearchChange}
               updateFlights={updateFlights}
+              onCheckedChange={onCheckedChange}
+              checked={checked}
             />
           </Collapse>
         </Navbar>

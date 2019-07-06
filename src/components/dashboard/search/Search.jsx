@@ -46,6 +46,7 @@ const Search = ({
   onSearchChange,
   updateFlights,
   checked,
+  direct,
   onCheckedChange
 }) => {
   return (
@@ -53,7 +54,7 @@ const Search = ({
       className="search-container"
       style={{
         padding: "1rem",
-        backgroundColor: "#5d9325"
+        backgroundColor: "#E7F2F8"
       }}
     >
       <div>
@@ -89,7 +90,6 @@ const Search = ({
       </div>
       <div>
         <label> Direct Flights only</label>
-        {console.log(checked)}
         <input
           name="direct"
           type="checkbox"

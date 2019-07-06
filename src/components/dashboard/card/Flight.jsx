@@ -16,20 +16,23 @@ const Flight = ({ number, price, time, duration, from, to, stop }) => {
       <Card
         style={{
           margin: "2rem 10rem 2rem 21rem",
-          borderColor: "#333",
+          borderColor: "#FFA384",
           heigth: "50px",
           width: "800px",
           display: "flex",
           alignItems: "center",
-          border: "1px solid black"
+          border: "1px solid black",
+          backgroundColor: "#EFE7BC"
+
         }}
       >
         <CardTitle
           style={{
-            backgroundColor: "#9999ff",
+            backgroundColor: "#FFA384",
             fontSize: "30px",
             border: "1px solid black",
-            padding: "1rem"
+            padding: "1rem",
+            color: 'white'
           }}
         >
           Flight number {number}
@@ -68,7 +71,6 @@ const Flight = ({ number, price, time, duration, from, to, stop }) => {
           <CardText>
             {from} - {to}
           </CardText>
-          {console.log(stop)}
           <CardText>{stop.length - 1}</CardText>
         </CardBody>
 

@@ -29,7 +29,7 @@ export default class App extends Component {
           flights: data.data,
           loading: false,
           noavailableflight: false,
-          checked
+          checked,
         });
       });
   };
@@ -40,10 +40,12 @@ export default class App extends Component {
   }
 
   onCheckedChange = e => {
+    console.log('Ahoj');
     this.setState({
       checked: e.target.checked,
       direct: 1
     });
+    console.log(this.state.checked);
   };
 
   onSearchChange = e => {
@@ -76,12 +78,12 @@ export default class App extends Component {
         <Heading
           onSearchChange={this.onSearchChange}
           updateFlights={this.updateFlights}
-          checked={this.state.checked}
           onCheckedChange={this.onCheckedChange}
+          checked = {this.state.checked}
         />
-        {this.state.loading ? "Wait a second..." : flightComponents}
+        {this.state.loading ? <h2>Wait a second...</h2> : flightComponents}
         {flightComponents.length === 0 && !this.state.loading
-          ? "No available flights"
+          ? <h2> No available flights :'(</h2> 
           : flightComponents}
       </>
     );
